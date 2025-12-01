@@ -9,11 +9,15 @@ import { FeatureFlagsProvider } from '@app/utils/FeatureFlagsContext';
 import { UserProfileProvider } from '@app/utils/UserProfileContext';
 import '@app/app.css';
 
+// Get the base path from the build-time environment variable
+// This will be '/rh-ai-prototype/' for GitHub Pages, or '/' for local development
+const basename = process.env.ASSET_PATH || '/';
+
 const App: React.FunctionComponent = () => (
   <FeatureFlagsProvider>
     <UserProfileProvider>
       <ThemeProvider>
-        <Router>
+        <Router basename={basename}>
           <AppLayout>
             <AppRoutes />
           </AppLayout>
