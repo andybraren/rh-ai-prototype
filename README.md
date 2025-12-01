@@ -102,7 +102,7 @@ ENV_2=http://2.myendpoint.com
 With that in place, you can use the values in your code like `console.log(process.env.ENV_1);`
 
 ## Prototype Appearance Configuration
-The prototype supports configurable appearance settings to prepare it for different contexts (e.g., user research, demos). Create a `.env` file in the root directory with the following options:
+The prototype supports configurable appearance settings to prepare it for different contexts (e.g., user research, demos). Create a `.env` file in the root directory (you can copy `.env.example` as a starting point) with the following options:
 
 ```sh
 # Use generic "AI Platform" text instead of branded logo
@@ -110,6 +110,9 @@ GENERIC_LOGO=true
 
 # Hide the orange "UXD PROTOTYPE" banner
 PROTOTYPE_BAR=false
+
+# Set the default fidelity mode
+DEFAULT_FIDELITY=low
 ```
 
 ### Available Options:
@@ -122,6 +125,11 @@ PROTOTYPE_BAR=false
 - `true` (default): Shows the orange "UXD PROTOTYPE" banner with fidelity controls
 - `false`: Hides the banner completely
 
+**DEFAULT_FIDELITY**
+- `low`: Starts the application in low fidelity mode by default
+- `high` (default): Starts the application in high fidelity mode by default
+- Note: This can still be overridden by the URL query parameter `?fidelity=low` or changed via the fidelity switcher in the UI
+
 You can use these independently or together depending on your needs:
-- For user research: Set both `GENERIC_LOGO=true` and `PROTOTYPE_BAR=false`
+- For user research: Set `GENERIC_LOGO=true`, `PROTOTYPE_BAR=false`, and `DEFAULT_FIDELITY=low`
 - For internal demos: Keep defaults or customize as needed

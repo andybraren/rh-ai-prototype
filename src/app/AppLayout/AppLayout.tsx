@@ -54,13 +54,18 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   // Environment variable controls for prototype appearance
   const useGenericLogo = process.env.GENERIC_LOGO === 'true';
   const hidePrototypeBar = process.env.PROTOTYPE_BAR === 'false';
+  const defaultFidelity = (process.env.DEFAULT_FIDELITY === 'low' ? 'low' : 'high') as 'high' | 'low';
   
   // Fidelity switcher state
   const [fidelitySelectOpen, setFidelitySelectOpen] = React.useState(false);
   const [fidelity, setFidelity] = React.useState<'high' | 'low'>(() => {
-    // Initialize from URL query parameter if present
+    // Initialize from URL query parameter if present, otherwise use environment default
     const params = new URLSearchParams(location.search);
-    return params.get('fidelity') === 'low' ? 'low' : 'high';
+    const urlFidelity = params.get('fidelity');
+    if (urlFidelity === 'low' || urlFidelity === 'high') {
+      return urlFidelity;
+    }
+    return defaultFidelity;
   });
 
   // Effect to toggle fidelity class on body and update URL
