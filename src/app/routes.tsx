@@ -207,7 +207,6 @@ const routes: AppRouteConfig[] = [
         label: 'API keys',
         path: '/gen-ai-studio/api-keys',
         title: 'RHOAI 3.1 Console | Gen AI Studio - API Keys',
-        new: true,
       },
       {
         element: <APIKeyDetails />,
@@ -473,7 +472,6 @@ const routes: AppRouteConfig[] = [
         label: 'Tiers',
         path: '/settings/tiers',
         title: 'RHOAI 3.1 Console | Settings - Tiers',
-        new: true,
       },
       {
         element: <Policies />,
@@ -481,7 +479,6 @@ const routes: AppRouteConfig[] = [
         label: 'Policies',
         path: '/settings/policies',
         title: 'RHOAI 3.1 Console | Settings - Policies',
-        tbd: true,
       },
     ],
   },
